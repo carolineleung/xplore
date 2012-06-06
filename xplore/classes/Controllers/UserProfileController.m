@@ -8,6 +8,8 @@
 
 #import "UserProfileController.h"
 #import "WorkHistoryView.h"
+#import "FriendListController.h"
+#import "FBUser.h"
 
 #define yPadding 10.0f
 
@@ -23,14 +25,13 @@
 
 @implementation UserProfileController
 
-@synthesize name = _name, location = _location, shortDesc = _shortDesc, profileImage = _profileImage, sessionDelegate = _sessionDelegate, workHistoryTitleBar = _workHistoryTitleBar, scrollView = _scrollView, friendsData = _friendsData;
+@synthesize name = _name, location = _location, shortDesc = _shortDesc, profileImage = _profileImage, sessionDelegate = _sessionDelegate, workHistoryTitleBar = _workHistoryTitleBar, scrollView = _scrollView, containerScrollView = _containerScrollView, friendsData = _friendsData, peopleButton = _peopleButton;
 
 
 - (id)initWithFBSessionDelegate:(id<FBSessionDelegate>)delegate {
     self = [super initWithNibName:nil bundle:nil];
     if (self) {
         self.sessionDelegate = delegate;
-        self.friendsData = [NSMutableArray array];
     }
     return self;
 }
@@ -39,6 +40,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.friendsData = [NSMutableArray array];
     
     self.navigationItem.title = @"Xplore";
     self.navigationItem.hidesBackButton = YES;
@@ -82,7 +84,7 @@
         for (NSDictionary *workData in workHistoryList) {
             WorkHistoryView *workHistoryView = [[WorkHistoryView alloc] initWithFrame:CGRectMake(_profileImage.frame.origin.x, yOffset + yPadding, self.view.frame.size.width - 2 * _profileImage.frame.origin.x, 200) data:workData];
             yOffset = workHistoryView.frame.origin.y + workHistoryView.frame.size.height;
-            [self.scrollView addSubview:workHistoryView];
+            [self.containerScrollView addSubview:workHistoryView];
             
             // Use most recent job entry as short description
             if (!self.shortDesc.text.length) {
@@ -92,12 +94,17 @@
         }
     }
     yOffset += 50;
-    self.scrollView.contentSize = CGSizeMake(self.scrollView.frame.size.width, yOffset);
+    self.containerScrollView.contentSize = CGSizeMake(self.containerScrollView.frame.size.width, yOffset);
+    self.scrollView.contentSize = CGSizeMake(self.scrollView.frame.size.width, yOffset + _containerScrollView.frame.origin.y);
+    self.containerScrollView.scrollEnabled = NO;
 }
 
 - (void)handleGraphFriendsRequest:(FBRequest *)request didLoad:(id)result {
     NSArray *resultData = [result objectForKey:@"data"];
-    [self.friendsData addObjectsFromArray:resultData];
+    for (NSDictionary *friendData in resultData) {
+        FBUser *user = [[FBUser alloc] initWithUserData:friendData];
+        [self.friendsData addObject:user];
+    }
 }
 
 
@@ -128,6 +135,13 @@
 - (void)logout:(id)sender {
     [[Utility getFBInstance] logout:self.sessionDelegate];
     [self.navigationController popToRootViewControllerAnimated:YES];
+}
+
+#pragma mark - Button clicked 
+
+- (void)viewFriends:(id)sender {
+    FriendListController *friendListController = [[FriendListController alloc] initWithStyle:UITableViewStylePlain friendsData:self.friendsData];
+    [self.navigationController pushViewController:friendListController animated:YES];
 }
 
 #pragma mark - Private methods

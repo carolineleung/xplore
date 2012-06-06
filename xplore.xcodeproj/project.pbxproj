@@ -35,9 +35,6 @@
 		BF1C58ED157B0DB3008C6980 /* XploreAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BF1C58EC157B0DB3008C6980 /* XploreAppDelegate.m */; };
 		BF1C58F8157B2A84008C6980 /* RootController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF1C58F6157B2A84008C6980 /* RootController.m */; };
 		BF1C58F9157B2A84008C6980 /* RootController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF1C58F7157B2A84008C6980 /* RootController.xib */; };
-		BF1C58FD157B2D14008C6980 /* Utility.m in Sources */ = {isa = PBXBuildFile; fileRef = BF1C58FC157B2D14008C6980 /* Utility.m */; };
-		BF8979DD157BD9F200EB8DCF /* UserProfileController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF8979DB157BD9F200EB8DCF /* UserProfileController.m */; };
-		BF8979DE157BD9F200EB8DCF /* UserProfileController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF8979DC157BD9F200EB8DCF /* UserProfileController.xib */; };
 		BF8979F6157BDBA100EB8DCF /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = BF8979E2157BDBA000EB8DCF /* AFHTTPClient.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		BF8979F7157BDBA100EB8DCF /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = BF8979E4157BDBA000EB8DCF /* AFHTTPRequestOperation.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		BF8979F8157BDBA100EB8DCF /* AFImageRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = BF8979E6157BDBA000EB8DCF /* AFImageRequestOperation.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -52,6 +49,12 @@
 		BFDE4061157C6F1700AF0A14 /* default_profile@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BFDE405F157C6F1700AF0A14 /* default_profile@2x.png */; };
 		BFDE4065157C92FF00AF0A14 /* WorkHistoryView.m in Sources */ = {isa = PBXBuildFile; fileRef = BFDE4064157C92FF00AF0A14 /* WorkHistoryView.m */; };
 		BFDE4069157C96EE00AF0A14 /* ViewFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = BFDE4068157C96EE00AF0A14 /* ViewFactory.m */; };
+		BFDF576C157FE3F800A9E24E /* FriendListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BFDF576B157FE3F800A9E24E /* FriendListCell.m */; };
+		BFDF5770157FF48B00A9E24E /* Utility.m in Sources */ = {isa = PBXBuildFile; fileRef = BFDF576F157FF48B00A9E24E /* Utility.m */; };
+		BFDF5776157FF4B700A9E24E /* FriendListController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFDF5772157FF4B600A9E24E /* FriendListController.m */; };
+		BFDF5777157FF4B700A9E24E /* UserProfileController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFDF5774157FF4B700A9E24E /* UserProfileController.m */; };
+		BFDF5778157FF4B700A9E24E /* UserProfileController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFDF5775157FF4B700A9E24E /* UserProfileController.xib */; };
+		BFDF577B157FF4F700A9E24E /* FBUser.m in Sources */ = {isa = PBXBuildFile; fileRef = BFDF577A157FF4F600A9E24E /* FBUser.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -112,11 +115,6 @@
 		BF1C58F5157B2A84008C6980 /* RootController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RootController.h; path = Controllers/RootController.h; sourceTree = "<group>"; };
 		BF1C58F6157B2A84008C6980 /* RootController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RootController.m; path = Controllers/RootController.m; sourceTree = "<group>"; };
 		BF1C58F7157B2A84008C6980 /* RootController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RootController.xib; path = Controllers/RootController.xib; sourceTree = "<group>"; };
-		BF1C58FB157B2D14008C6980 /* Utility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utility.h; sourceTree = "<group>"; };
-		BF1C58FC157B2D14008C6980 /* Utility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utility.m; sourceTree = "<group>"; };
-		BF8979DA157BD9F200EB8DCF /* UserProfileController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserProfileController.h; sourceTree = "<group>"; };
-		BF8979DB157BD9F200EB8DCF /* UserProfileController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserProfileController.m; sourceTree = "<group>"; };
-		BF8979DC157BD9F200EB8DCF /* UserProfileController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserProfileController.xib; sourceTree = "<group>"; };
 		BF8979E1157BDBA000EB8DCF /* AFHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPClient.h; sourceTree = "<group>"; };
 		BF8979E2157BDBA000EB8DCF /* AFHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPClient.m; sourceTree = "<group>"; };
 		BF8979E3157BDBA000EB8DCF /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
@@ -144,6 +142,17 @@
 		BFDE4064157C92FF00AF0A14 /* WorkHistoryView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WorkHistoryView.m; path = classes/Views/WorkHistoryView.m; sourceTree = "<group>"; };
 		BFDE4067157C96EE00AF0A14 /* ViewFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ViewFactory.h; path = classes/Views/ViewFactory.h; sourceTree = "<group>"; };
 		BFDE4068157C96EE00AF0A14 /* ViewFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ViewFactory.m; path = classes/Views/ViewFactory.m; sourceTree = "<group>"; };
+		BFDF576A157FE3F800A9E24E /* FriendListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendListCell.h; sourceTree = "<group>"; };
+		BFDF576B157FE3F800A9E24E /* FriendListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendListCell.m; sourceTree = "<group>"; };
+		BFDF576E157FF48B00A9E24E /* Utility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utility.h; sourceTree = "<group>"; };
+		BFDF576F157FF48B00A9E24E /* Utility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utility.m; sourceTree = "<group>"; };
+		BFDF5771157FF4B600A9E24E /* FriendListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FriendListController.h; path = Controllers/FriendListController.h; sourceTree = "<group>"; };
+		BFDF5772157FF4B600A9E24E /* FriendListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FriendListController.m; path = Controllers/FriendListController.m; sourceTree = "<group>"; };
+		BFDF5773157FF4B600A9E24E /* UserProfileController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserProfileController.h; path = Controllers/UserProfileController.h; sourceTree = "<group>"; };
+		BFDF5774157FF4B700A9E24E /* UserProfileController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserProfileController.m; path = Controllers/UserProfileController.m; sourceTree = "<group>"; };
+		BFDF5775157FF4B700A9E24E /* UserProfileController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = UserProfileController.xib; path = Controllers/UserProfileController.xib; sourceTree = "<group>"; };
+		BFDF5779157FF4F600A9E24E /* FBUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FBUser.h; path = Models/FBUser.h; sourceTree = "<group>"; };
+		BFDF577A157FF4F600A9E24E /* FBUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FBUser.m; path = Models/FBUser.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -299,10 +308,10 @@
 			children = (
 				BF1C58EB157B0DB3008C6980 /* XploreAppDelegate.h */,
 				BF1C58EC157B0DB3008C6980 /* XploreAppDelegate.m */,
-				BF1C58FB157B2D14008C6980 /* Utility.h */,
-				BF1C58FC157B2D14008C6980 /* Utility.m */,
 				BF1C58F2157B1CC7008C6980 /* Constants.h */,
 				BFDE4066157C930600AF0A14 /* Views */,
+				BFDF577C157FF51B00A9E24E /* Models */,
+				BFDF576D157FF48A00A9E24E /* Utility */,
 				BF1C58FA157B2A8D008C6980 /* Controllers */,
 			);
 			name = Classes;
@@ -312,12 +321,14 @@
 		BF1C58FA157B2A8D008C6980 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				BFDF5771157FF4B600A9E24E /* FriendListController.h */,
+				BFDF5772157FF4B600A9E24E /* FriendListController.m */,
+				BFDF5773157FF4B600A9E24E /* UserProfileController.h */,
+				BFDF5774157FF4B700A9E24E /* UserProfileController.m */,
+				BFDF5775157FF4B700A9E24E /* UserProfileController.xib */,
 				BF1C58F5157B2A84008C6980 /* RootController.h */,
 				BF1C58F6157B2A84008C6980 /* RootController.m */,
 				BF1C58F7157B2A84008C6980 /* RootController.xib */,
-				BF8979DA157BD9F200EB8DCF /* UserProfileController.h */,
-				BF8979DB157BD9F200EB8DCF /* UserProfileController.m */,
-				BF8979DC157BD9F200EB8DCF /* UserProfileController.xib */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -366,9 +377,29 @@
 				BFDE4064157C92FF00AF0A14 /* WorkHistoryView.m */,
 				BFDE4067157C96EE00AF0A14 /* ViewFactory.h */,
 				BFDE4068157C96EE00AF0A14 /* ViewFactory.m */,
+				BFDF576A157FE3F800A9E24E /* FriendListCell.h */,
+				BFDF576B157FE3F800A9E24E /* FriendListCell.m */,
 			);
 			name = Views;
 			path = ..;
+			sourceTree = "<group>";
+		};
+		BFDF576D157FF48A00A9E24E /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				BFDF576E157FF48B00A9E24E /* Utility.h */,
+				BFDF576F157FF48B00A9E24E /* Utility.m */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		BFDF577C157FF51B00A9E24E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				BFDF5779157FF4F600A9E24E /* FBUser.h */,
+				BFDF577A157FF4F600A9E24E /* FBUser.m */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -444,9 +475,9 @@
 				BF1C5890157B0915008C6980 /* InfoPlist.strings in Resources */,
 				BF1C58DC157B0D5A008C6980 /* FBDialog.bundle in Resources */,
 				BF1C58F9157B2A84008C6980 /* RootController.xib in Resources */,
-				BF8979DE157BD9F200EB8DCF /* UserProfileController.xib in Resources */,
 				BFDE4060157C6F1700AF0A14 /* default_profile.png in Resources */,
 				BFDE4061157C6F1700AF0A14 /* default_profile@2x.png in Resources */,
+				BFDF5778157FF4B700A9E24E /* UserProfileController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -496,8 +527,6 @@
 				BF1C58E6157B0D5A008C6980 /* SBJsonWriter.m in Sources */,
 				BF1C58ED157B0DB3008C6980 /* XploreAppDelegate.m in Sources */,
 				BF1C58F8157B2A84008C6980 /* RootController.m in Sources */,
-				BF1C58FD157B2D14008C6980 /* Utility.m in Sources */,
-				BF8979DD157BD9F200EB8DCF /* UserProfileController.m in Sources */,
 				BF8979F6157BDBA100EB8DCF /* AFHTTPClient.m in Sources */,
 				BF8979F7157BDBA100EB8DCF /* AFHTTPRequestOperation.m in Sources */,
 				BF8979F8157BDBA100EB8DCF /* AFImageRequestOperation.m in Sources */,
@@ -510,6 +539,11 @@
 				BF8979FF157BDBA100EB8DCF /* UIImageView+AFNetworking.m in Sources */,
 				BFDE4065157C92FF00AF0A14 /* WorkHistoryView.m in Sources */,
 				BFDE4069157C96EE00AF0A14 /* ViewFactory.m in Sources */,
+				BFDF576C157FE3F800A9E24E /* FriendListCell.m in Sources */,
+				BFDF5770157FF48B00A9E24E /* Utility.m in Sources */,
+				BFDF5776157FF4B700A9E24E /* FriendListController.m in Sources */,
+				BFDF5777157FF4B700A9E24E /* UserProfileController.m in Sources */,
+				BFDF577B157FF4F700A9E24E /* FBUser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
