@@ -14,18 +14,23 @@
 @interface UserProfileController (private)
 
 - (void)apiGraphMe;
-
+- (fbApiType)urlToType:(NSString*)requestUrl;
+- (void)handleGraphMeRequest:(FBRequest *)request didLoad:(id)result;
+- (void)handleGraphFriendsRequest:(FBRequest *)request didLoad:(id)result;
+- (void)apiGraphFriends;
 @end
 
 
 @implementation UserProfileController
 
-@synthesize name = _name, location = _location, shortDesc = _shortDesc, profileImage = _profileImage, sessionDelegate = _sessionDelegate, workHistoryTitleBar = _workHistoryTitleBar, scrollView = _scrollView;
+@synthesize name = _name, location = _location, shortDesc = _shortDesc, profileImage = _profileImage, sessionDelegate = _sessionDelegate, workHistoryTitleBar = _workHistoryTitleBar, scrollView = _scrollView, friendsData = _friendsData;
+
 
 - (id)initWithFBSessionDelegate:(id<FBSessionDelegate>)delegate {
     self = [super initWithNibName:nil bundle:nil];
     if (self) {
         self.sessionDelegate = delegate;
+        self.friendsData = [NSMutableArray array];
     }
     return self;
 }
@@ -40,17 +45,25 @@
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Logout" style:UIBarButtonItemStyleBordered target:self action:@selector(logout:)];
 
     [self apiGraphMe];
+    [self apiGraphFriends];
 }
 
-#pragma mark - Graph API
+#pragma mark - Graph API requests
 
 - (void)apiGraphMe {
+    //TODO show loading
     NSMutableDictionary *params = [NSMutableDictionary dictionaryWithObjectsAndKeys:@"name, picture, work, education, location",  @"fields", nil];
     [[Utility getFBInstance] requestWithGraphPath:@"me" andParams:params andDelegate:self];
 }
 
-- (void)request:(FBRequest *)request didLoad:(id)result {
-    NSLog(@"Received %@", result);
+- (void)apiGraphFriends {
+    //TODO show loading
+    [[Utility getFBInstance] requestWithGraphPath:@"me/friends" andDelegate:self];
+}
+
+#pragma mark - Graph API response handling
+
+- (void)handleGraphMeRequest:(FBRequest *)request didLoad:(id)result {
     NSString *username = [result objectForKey:@"name"];
     self.name.text = username ? username : @"(Unknown)";
     NSString *pictureUrl = [result objectForKey:@"picture"];
@@ -70,7 +83,7 @@
             WorkHistoryView *workHistoryView = [[WorkHistoryView alloc] initWithFrame:CGRectMake(_profileImage.frame.origin.x, yOffset + yPadding, self.view.frame.size.width - 2 * _profileImage.frame.origin.x, 200) data:workData];
             yOffset = workHistoryView.frame.origin.y + workHistoryView.frame.size.height;
             [self.scrollView addSubview:workHistoryView];
-
+            
             // Use most recent job entry as short description
             if (!self.shortDesc.text.length) {
                 NSString *positionText = workHistoryView.position.text;
@@ -80,17 +93,56 @@
     }
     yOffset += 50;
     self.scrollView.contentSize = CGSizeMake(self.scrollView.frame.size.width, yOffset);
-    
+}
+
+- (void)handleGraphFriendsRequest:(FBRequest *)request didLoad:(id)result {
+    NSArray *resultData = [result objectForKey:@"data"];
+    [self.friendsData addObjectsFromArray:resultData];
+}
+
+
+#pragma mark - Graph API response callback
+
+- (void)request:(FBRequest *)request didLoad:(id)result {
+    NSLog(@"Received response for %@ - %@", request.url, result);
+    fbApiType apiType = [self urlToType:request.url];
+    switch (apiType) {
+        case kApiGraphMe:
+            [self handleGraphMeRequest:request didLoad:result];
+            break;
+            
+        case kApiGraphUserFriends:
+            [self handleGraphFriendsRequest:request didLoad:result];
+            break;
+            
+        default:
+            NSLog(@"Unexpected graph api request %@, result: %@", request.url, result);
+            break;
+    }
 }
 
 - (void)request:(FBRequest *)request didFailWithError:(NSError *)error {
-    NSLog(@"Received error %@ for request %@", error, request);
+    NSLog(@"Received error: %@ for request: %@", error, request.url);
 }
 
 - (void)logout:(id)sender {
     [[Utility getFBInstance] logout:self.sessionDelegate];
     [self.navigationController popToRootViewControllerAnimated:YES];
 }
+
+#pragma mark - Private methods
+
+- (fbApiType)urlToType:(NSString *)requestUrl {
+    fbApiType type;
+    if ([requestUrl isEqualToString:@"https://graph.facebook.com/me"]) {
+        type = kApiGraphMe;
+    } else if ([requestUrl isEqualToString:@"https://graph.facebook.com/me/friends"]) {
+        type = kApiGraphUserFriends;
+    }
+    return type;
+}
+
+#pragma mark - View Lifecycle
 
 - (void)viewDidUnload {
     [super viewDidUnload];

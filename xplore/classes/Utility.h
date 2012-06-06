@@ -9,6 +9,12 @@
 #import <Foundation/Foundation.h>
 #import "XploreAppDelegate.h"
 
+typedef enum fbApiType {
+    kApiGraphMe,
+    kApiGraphUserFriends
+} fbApiType;
+
+
 @interface Utility : NSObject
 
 + (BOOL)isDeviceiPad;

@@ -16,4 +16,5 @@
 @property (nonatomic, strong) IBOutlet UIImageView *profileImage;
 @property (nonatomic, unsafe_unretained) id<FBSessionDelegate> sessionDelegate;
 
+@property (nonatomic, strong) NSMutableArray *friendsData;
 @end
