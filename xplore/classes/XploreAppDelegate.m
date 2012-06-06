@@ -22,6 +22,8 @@
 
     self.rootController = [[RootController alloc] init];
     self.navigationController = [[UINavigationController alloc] initWithRootViewController:self.rootController];
+    [_navigationController.navigationBar setTintColor:[UIColor colorWithRed:0/255.0 green:130.0/255.0 blue:51.0/255.0 alpha:1.0]];
+
     self.facebook = [[Facebook alloc] initWithAppId:kXploreFBAppId andDelegate:self.rootController];
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
