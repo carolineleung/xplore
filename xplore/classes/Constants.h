@@ -8,6 +8,8 @@
 
 #define kXploreFBAppId          @"443578138986971"
 
+#define kFBProfileUrlSmall      @"https://graph.facebook.com/%@/picture"
+
 #define kiPhoneWidth            320.0f
 #define kiPadWidth              784.0f
 
